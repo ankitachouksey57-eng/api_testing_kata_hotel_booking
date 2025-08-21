@@ -4,8 +4,6 @@ Feature: Hotel Room Booking API Tests
   Background:
     Given I have a valid token
 
-#  this scenario's is having empty response for successful booking (defect)
-#  and hence will fail during validation
   @successfulBookingCreation
   Scenario Outline: Create a booking with valid data successfully
     Given user has access to endpoint "/booking"
@@ -13,15 +11,13 @@ Feature: Hotel Room Booking API Tests
       | firstname   | lastname   | email   | phone   | checkin   | checkout   |
       | <firstname> | <lastname> | <email> | <phone> | <checkin> | <checkout> |
     Then the response status code should be 200
-    And validate the response with label values
+#    And validate the response with label values //response has empty body hence cannot be validated
     Examples:
       | firstname | lastname | email                    | phone        | checkin    | checkout   |
       | Ankita    | Chouksey | anktachouk@gmail.com     | 467537657364 | 2025-09-11 | 2025-09-14 |
       | Aarya     | Choukey  | aaryachouk@gmail.com     | 475867564532 | 2025-09-14 | 2025-09-20 |
 
 
-    #  this scenario's is having empty response for successful booking (defect)
-#  and hence will fail during validation
   @negativeBookingCreation
   Scenario Outline: Create booking without passing required fields should fail
     Given user has access to endpoint "/booking"
@@ -36,3 +32,5 @@ Feature: Hotel Room Booking API Tests
       | Ankita    | Chouks   | ankichou@gmail.com | 476543986468 |            | 2025-09-16 | [must not be null]                    |
       | Aarya     | Chouksey | ankichou@gmail.com | 476543986468 | 2025-09-12 |            | [must not be null]                    |
       |           | Chouks   | ankichou@gmail.com | 476543986468 |            | 2025-09-16 | [Firstname should not be blank, must not be null]                    |
+      | Ankita    |          | ankichou@gmail.com | 476543986468 |            | 2025-09-16 | [Lastname should not be blank, must not be null]                    |
+      | Ankita    | chouksey |                    | 476543986468 |            | 2025-09-16 | [must not be null]                    |

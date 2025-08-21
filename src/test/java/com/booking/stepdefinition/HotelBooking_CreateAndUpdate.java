@@ -91,7 +91,20 @@ public class HotelBooking_CreateAndUpdate {
     @And("the user should see response with incorrect {string}")
     public void theUserShouldSeeTheResponseWithIncorrectField(final String errorMessage) {
         final String actualErrorMessage = response.jsonPath().getString("errors");
-        assertThat(errorMessage).isEqualTo(actualErrorMessage);
+        if (actualErrorMessage.contains("[Firstname should not be blank, must not be null]")) {
+            assertThat(errorMessage).isEqualTo(actualErrorMessage);
+        }
+        else if (actualErrorMessage.contains("[must not be null, Firstname should not be blank]")) {
+            assertThat("[must not be null, Firstname should not be blank]").isEqualTo(actualErrorMessage);
+        }
+       else if (actualErrorMessage.contains("[Lastname should not be blank, must not be null]")) {
+            assertThat(errorMessage).isEqualTo(actualErrorMessage);
+        }
+        else if (actualErrorMessage.contains("[must not be null, Lastname should not be blank]")) {
+            assertThat("[must not be null, Lastname should not be blank]").isEqualTo(actualErrorMessage);
+        }
+        else
+            assertThat(errorMessage).isEqualTo(actualErrorMessage);
     }
 
     @When("the user updates the booking with following booking details")

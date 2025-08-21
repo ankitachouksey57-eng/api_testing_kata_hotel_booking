@@ -18,21 +18,21 @@ public class HotelBooking_Summary {
     public void theUserRetrievesBookingSummaryWithRoomId(final String endpoint) {
         context.session.put("endpoint", endpoint);
         final Integer roomId = BookingContext.getRoomIds().getLast();
-        response = context.requestSetup().when().get(context.session.get("endpoint").toString() + "?roomid=" + roomId);
-    System.out.println("booking summary response>> "+response.body().asString());
+        context.response = context.requestSetup().when().get(context.session.get("endpoint").toString() + "?roomid=" + roomId);
+    System.out.println("booking summary response>> "+context.response.body().asString());
     }
 
     @Then("the response should contain the booking dates {string} and {string} for room id and status code {int}")
     public void theResponseShouldContainTheBookingDatesForRoom(final String expectedCheckInDate, final String expectedCheckOutDate, final int expectedStatusCode) {
 
-        final String checkIn = response.jsonPath().getString("bookings[0].bookingDates.checkin");
-        final String checkOut = response.jsonPath().getString("bookings[0].bookingDates.checkout");
+        final String checkIn = context.response.jsonPath().getString("bookings[0].bookingDates.checkin");
+        final String checkOut = context.response.jsonPath().getString("bookings[0].bookingDates.checkout");
 
         assertThat(checkIn).isNotNull();
         assertThat(checkOut).isNotNull();
         assertThat(expectedCheckInDate).isEqualTo(checkIn);
         assertThat(expectedCheckOutDate).isEqualTo(checkOut);
-        assertThat(expectedStatusCode).isEqualTo(response.getStatusCode());
+        assertThat(expectedStatusCode).isEqualTo(context.response.getStatusCode());
     }
 
     @When("the user retrieves booking summary {string} with invalid roomid {int}")

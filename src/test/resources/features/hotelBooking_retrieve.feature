@@ -18,7 +18,6 @@ Feature: Booking Retrieval API Tests
       | firstname | lastname | email              | phone         | checkin    | checkout   |
       | Ankita    | Chouksey | ankichou@gmail.com | 475871872462  | 2025-09-12 | 2025-09-18 |
 
-
     #  get booking details by ID is failing
   @getBookingByBookingID
   Scenario: Retrieve bookings with valid Booking IDs

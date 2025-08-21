@@ -4,7 +4,7 @@ Feature: Delete bookings API Tests
   Background:
     Given I have a valid token
 
-  @deleteBookingByValidId
+  @successfullyDeletedWithId
   Scenario: User deletes a booking by ID
     Given user has access to endpoint "/booking"
     When the user books a room with the following booking details
@@ -15,7 +15,7 @@ Feature: Delete bookings API Tests
     Then the user should get a response code of 200
     And the booking should be deleted successfully
 
-  @deleteBookingByInvalidId
+  @negativeScenarioForDelete
   Scenario: User deletes a booking by ID
     Given user has access to endpoint "/booking"
     When the user books a room with the following booking details

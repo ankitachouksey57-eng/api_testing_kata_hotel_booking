@@ -26,14 +26,15 @@ public class HotelBooking_Delete {
 //        booking id using get booking details by roomID
         String tokenValue = context.getToken();
         final int roomId = Integer.parseInt(BookingContext.getRoomIds().getLast().toString());
-        response = context.requestSetup().cookie("token", tokenValue).when()
+        context.response = context.requestSetup().cookie("token", tokenValue).when()
                 .get(context.session.get("endpoint").toString() + "?roomid=" + roomId);
 
+        System.out.println("response >>>"+context.response.body().asString());
 //        saving the value of bookingID
-        BookingContext.addBookingId(response.jsonPath().get("bookings[0].bookingid"));
+        BookingContext.addBookingId(context.response.jsonPath().get("bookings[0].bookingid"));
         final Integer storedBookingId = BookingContext.getBookingIds().getLast();
         if (storedBookingId != null) {
-            response = context.requestSetup().cookie("token", tokenValue).when()
+            context.response = context.requestSetup().cookie("token", tokenValue).when()
                     .delete(context.session.get("endpoint").toString() + "/"+storedBookingId);
         } else {
             throw new RuntimeException("Booking ID not available for DELETE request.");
@@ -42,7 +43,7 @@ public class HotelBooking_Delete {
 
     @Then("the user should get a response code of {int}")
     public void theUserShouldGetResponseCodeOf(final int expectedStatusCode) {
-        response.then().statusCode(expectedStatusCode);
+        context.response.then().statusCode(expectedStatusCode);
     }
 
     @And("the booking should be deleted successfully")
@@ -53,7 +54,7 @@ public class HotelBooking_Delete {
 //        booking id using get booking details by roomID
         String tokenValue = context.getToken();
         final int roomId = Integer.parseInt(BookingContext.getRoomIds().getLast().toString());
-        response = context.requestSetup().cookie("token", tokenValue).when()
+        context.response = context.requestSetup().cookie("token", tokenValue).when()
                 .get(context.session.get("endpoint").toString() + "?roomid=" + roomId);
 
         final Integer storedBookingId = BookingContext.getBookingIds().getLast();
@@ -67,7 +68,7 @@ public class HotelBooking_Delete {
     @When("the user deletes the booking with invalid booking ID {int}")
     public void theUserDeletesTheBookingWithInvalidBookingID(final int bookingid) {
         String tokenValue = context.getToken();
-        response = context.requestSetup().cookie("token", tokenValue).when()
+        context.response = context.requestSetup().cookie("token", tokenValue).when()
                 .delete(context.session.get("endpoint").toString() +"/"+ "12");
 
     }

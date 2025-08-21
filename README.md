@@ -1,12 +1,24 @@
 # API_Automation_Hotel_Booking
 
-we have used:
-:-Java - JDK 21
-:-Maven 3.9.9
+We have used below:
+* Java - JDK version: 21.0.8
+* Maven 3.9.11
 
-To run:
-select the "tags = @successfulBookingCreation" in TestRunner file and run with command `mvn clean test`
-we have different tags as per the requirement of test execution.
+To run test:
+select the "tags = @e2eBookingFlow" in TestRunner file and run with command `mvn clean test`
+we have different tags as per the requirement of test scenario.
+@successfulBookingCreation
+@negativeBookingCreation
+@getBookingByRoomID
+@getBookingByInvalidRoomID
+@getBookingByInvalidBookingID
+@bookingUpdateSuccess
+@bookingUpdateNegative
+@successfullyDeletedWithId
+@negativeScenarioForDelete
+@getBookingSummaryByValidID
+@getBookingSummaryByInvalidID
+@AuthValidation
 
 ## Background
 The application under test is a simple hotel booking website where you can book a room and also send a form with a request.

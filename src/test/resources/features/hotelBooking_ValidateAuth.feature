@@ -4,6 +4,7 @@ Feature: Delete bookings API Tests without authentication
   Background:
     Given I have a valid token
 
+#    verify without auth user can not proceed with request
   @AuthValidation
   Scenario: User try to delete a booking by ID without auth
     Given user has access to endpoint "/booking"

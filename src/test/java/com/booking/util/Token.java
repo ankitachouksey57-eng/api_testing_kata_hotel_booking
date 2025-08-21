@@ -10,7 +10,7 @@ public class Token {
 
     private BookingContext context;
     Credentials payload = new Credentials();
-    private Response res;
+    private Response response;
     String token_created;
     public Token(BookingContext context){
         this.context = context;
@@ -27,13 +27,13 @@ public class Token {
         System.out.println();  //sout
         System.out.println("Token:  " +TokenJSONformat);
 
-        res = given().contentType(ContentType.JSON)
+        response = given().contentType(ContentType.JSON)
                 .accept("*/*")
                 .body(TokenJSONformat)
                 .log().all()
                 .post("https://automationintesting.online/api/auth/login");
 
-        token_created = res.jsonPath().get("token").toString();
+        token_created = response.jsonPath().get("token").toString();
         context.setToken(token_created);
         System.out.println("inside Token class:  "+token_created);
        return token_created;

@@ -6,7 +6,7 @@ import static io.cucumber.junit.platform.engine.Constants.*;
 
 @Suite
 @IncludeEngines("cucumber")
-@IncludeTags("successfulBookingCreation")
+@IncludeTags("e2eBookingFlow")
 @SelectPackages("com.booking")
 @SelectClasspathResource("features")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.booking")

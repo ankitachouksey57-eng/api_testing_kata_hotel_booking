@@ -14,7 +14,6 @@ import static org.hamcrest.Matchers.equalTo;
 @RequiredArgsConstructor
 public class HotelBooking_Delete {
 
-    private Response response;
     private final BookingContext context;
 
 

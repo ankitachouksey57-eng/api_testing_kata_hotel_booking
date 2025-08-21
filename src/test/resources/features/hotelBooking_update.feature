@@ -16,9 +16,9 @@ Feature: Booking Update API Tests
       | firstname | lastname | email                   | phone         | checkin    | checkout   |
       | Aarya   | Chouksey    | aaryachoukey@gmail.com | 4758718724625 | 2025-09-12 | 2025-09-18 |
     Then the response status code should be 200
-#    And validate the response with updated values //after update operation the booking details are not retrievable
+#    And validate the response with updated values //after update op the booking details are not retrievable
 
-  @bookingUpdateError
+  @bookingUpdateNegative
   Scenario Outline: Update an existing booking with invalid data
     Given user has access to endpoint "/booking"
     When the user books a room with the following booking details

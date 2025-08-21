@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.empty;
 public class HotelBooking_Retrieve {
 
     private final BookingContext context;
-    Response response;
+
     @When("the user retrieves booking with booking ID")
     public void theUserRetrievesBookingWithBookingID() {
 

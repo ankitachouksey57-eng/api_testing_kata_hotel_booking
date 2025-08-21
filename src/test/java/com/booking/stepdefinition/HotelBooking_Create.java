@@ -20,7 +20,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RequiredArgsConstructor
 public class HotelBooking_Create {
 
-    private Response response;
     private JSONObject requestBody;
     private final BookingContext context;
     private static final Logger LOG = LogManager.getLogger(HotelBooking_Create.class);

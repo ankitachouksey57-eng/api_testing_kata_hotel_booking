@@ -11,7 +11,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RequiredArgsConstructor
 public class HotelBooking_Summary {
 
-    private Response response;
     private final BookingContext context;
 
     @When("the user retrieves booking summary {string} with roomid")

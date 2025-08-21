@@ -1,4 +1,4 @@
-@crudOperation
+@hotelBooking @crudOperation
 Feature: End to End Booking Test
 
   Background:

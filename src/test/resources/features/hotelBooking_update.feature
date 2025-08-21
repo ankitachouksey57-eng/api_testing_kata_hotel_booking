@@ -1,4 +1,4 @@
-@bookingAPI @updateBooking
+@hotelBooking @updateBooking
 Feature: Booking Update API Tests
 
   Background:

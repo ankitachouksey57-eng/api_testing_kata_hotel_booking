@@ -1,4 +1,4 @@
-@hotelRoomBooking
+@hotelBooking
 Feature: Hotel Room Booking API Tests
 
   Background:

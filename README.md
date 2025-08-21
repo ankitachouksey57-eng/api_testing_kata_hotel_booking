@@ -4,21 +4,23 @@ We have used below:
 * Java - JDK version: 21.0.8
 * Maven 3.9.11
 
-To run test:
-select the "tags = @e2eBookingFlow" in TestRunner file and run with command `mvn clean test`
+To run all test:
+select the "tags = @hotelBooking" in TestRunner file and run with command `mvn clean test`
+
 we have different tags as per the requirement of test scenario.
-@successfulBookingCreation
-@negativeBookingCreation
-@getBookingByRoomID
-@getBookingByInvalidRoomID
-@getBookingByInvalidBookingID
-@bookingUpdateSuccess
-@bookingUpdateNegative
-@successfullyDeletedWithId
-@negativeScenarioForDelete
-@getBookingSummaryByValidID
-@getBookingSummaryByInvalidID
-@AuthValidation
+1. @successfulBookingCreation
+2. @negativeBookingCreation
+3. @getBookingByRoomID
+4. @getBookingByInvalidRoomID
+5. @getBookingByInvalidBookingID
+6. @bookingUpdateSuccess
+7. @bookingUpdateNegative
+8. @successfullyDeletedWithId
+9. @negativeScenarioForDelete
+10. @getBookingSummaryByValidID
+11. @getBookingSummaryByInvalidID
+12. @AuthValidation
+13. @e2eBookingFlow
 
 ## Background
 The application under test is a simple hotel booking website where you can book a room and also send a form with a request.

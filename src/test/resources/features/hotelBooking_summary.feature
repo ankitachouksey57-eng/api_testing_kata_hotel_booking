@@ -1,4 +1,4 @@
-@bookingAPI @bookingSummary @noAuth
+@bookingSummary @noAuth
 Feature: Booking Summary API Tests
 
   Background:

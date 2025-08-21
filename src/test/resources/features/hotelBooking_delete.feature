@@ -1,4 +1,4 @@
-@bookingAPI @deleteBooking
+@hotelBooking @deleteBooking
 Feature: Delete bookings API Tests
 
   Background:
